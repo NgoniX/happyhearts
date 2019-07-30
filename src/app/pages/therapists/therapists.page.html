@@ -1,0 +1,43 @@
+<ion-header>
+
+    <ion-toolbar color="primary">
+        <ion-searchbar placeholder="Search Filter" [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" animated>
+        </ion-searchbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <ion-item>
+        <ion-label>Select Category</ion-label>
+        <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+            <ion-select-option value="">All</ion-select-option>
+            <ion-select-option value="Counselors">Counselors</ion-select-option>
+            <ion-select-option value="Psychologists">Psychologists</ion-select-option>
+            <ion-select-option value="Therapists">Therapists</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item button *ngFor="let t of therapists" [routerLink]="['/', 'therapist-detail', t.id]">
+            <ion-avatar slot="start">
+                <img src="{{ imgUrl }}{{ t.photo }}">
+            </ion-avatar>
+            <ion-label text-wrap>
+                <h3>{{ t.name }}</h3>
+                <p>{{ t.email }}</p>
+            </ion-label>
+            <ion-icon slot="end" name="person"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

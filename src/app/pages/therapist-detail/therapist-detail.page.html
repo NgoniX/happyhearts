@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Personal Details</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let t of therapist">
+
+        <img src="{{ imgUrl }}{{ t?.photo }}">
+
+        <ion-item>
+            <h3>{{ t.name }}</h3>
+        </ion-item>
+
+        <ion-card-content>
+            <p><b>Specialises in:</b> {{ t.speciality }}</p>
+            <p><b>Preferred Language:</b> {{ t.language }}</p>
+            <p><b>Licensing Authority:</b> {{ t.authority }}</p>
+            <p>{{ t.qualification }}</p>
+            <p [innerHtml]="t.description"></p>
+        </ion-card-content>
+
+    </ion-card>
+
+</ion-content>
+
+<ion-footer class="foot">
+    <ion-toolbar>
+
+        <ion-row>
+            <ion-col class="contacts" size="6" no-padding>
+                <ion-button expand="full" fill>
+                    <ion-icon name="call"></ion-icon>
+                    <div> Call Now</div>
+                </ion-button>
+            </ion-col>
+            <ion-col class="contacts" size="6" no-padding>
+                <ion-button expand="full" fill>
+                    <ion-icon name="mail"></ion-icon>
+                    <div> Send EMail</div>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </ion-toolbar>
+</ion-footer>

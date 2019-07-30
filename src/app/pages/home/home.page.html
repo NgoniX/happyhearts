@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Happy Hearts Therapy
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-slides>
+
+        <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+            <ion-slide *ngFor="let number of [1,2,3]">
+                <img src="./assets/imgs/{{number}}.jpg">
+            </ion-slide>
+        </ion-slides>
+
+    </ion-slides>
+
+    <ion-row>
+        <ion-col size="6" no-padding>
+            <img src="assets/imgs/anger.jpg" [routerLink]="['/therapists/', {spec: 'Anger'}]" routerDirection="forward" />
+            <img src="assets/imgs/anxiety.jpg" class="anxiety" [routerLink]="['/therapists/', {spec: 'Anxiety'}]" routerDirection="forward" />
+        </ion-col>
+        <ion-col size="6" no-padding>
+            <img src="assets/imgs/depression.jpg" class="depression" [routerLink]="['/therapists/', {spec: 'Depression'}]" routerDirection="forward" />
+            <img src="assets/imgs/grief.jpg" class="grief" [routerLink]="['/therapists/', {spec: 'Grief'}]" routerDirection="forward" />
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="6" no-padding>
+            <img src="assets/imgs/relationships.jpg" class="relationships" [routerLink]="['/therapists/', {spec: 'Relationships'}]" routerDirection="forward" />
+            <img src="assets/imgs/self-esteem.jpg" class="self-esteem" [routerLink]="['/therapists/', {spec: 'Self-esteem'}]" routerDirection="forward" />
+        </ion-col>
+        <ion-col size="6" no-padding>
+            <img src="assets/imgs/stress.jpg" class="stress" [routerLink]="['/therapists/', {spec: 'Stress'}]" routerDirection="forward" />
+            <img src="assets/imgs/more.jpg" [routerLink]="['/therapists/', {spec: ''}]" class="more" />
+        </ion-col>
+    </ion-row>
+
+</ion-content>
